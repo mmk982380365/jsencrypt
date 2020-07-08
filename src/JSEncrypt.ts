@@ -88,6 +88,23 @@ export default class JSEncrypt {
     }
 
     /**
+     * Proxy method for RSAKey object's decrypt, decrypt the string using the private
+     * components of the rsa key object. Note that if the object was not set will be created
+     * on the fly (by the getKey method) using the parameters passed in the JSEncrypt constructor
+     * @param {string} str base64 encoded crypted string to decrypt
+     * @return {string} the decrypted string
+     * @public
+     */
+    public decryptByte(str:string) {
+        // Return the decrypted string.
+        try {
+            return this.getKey().decrypt(str);
+        } catch (ex) {
+            return false;
+        }
+    }
+
+    /**
      * Proxy method for RSAKey object's encrypt, encrypt the string using the public
      * components of the rsa key object. Note that if the object was not set will be created
      * on the fly (by the getKey method) using the parameters passed in the JSEncrypt constructor
@@ -99,6 +116,23 @@ export default class JSEncrypt {
         // Return the encrypted string.
         try {
             return hex2b64(this.getKey().encrypt(str));
+        } catch (ex) {
+            return false;
+        }
+    }
+
+    /**
+     * Proxy method for RSAKey object's encrypt, encrypt the string using the public
+     * components of the rsa key object. Note that if the object was not set will be created
+     * on the fly (by the getKey method) using the parameters passed in the JSEncrypt constructor
+     * @param {string} str the string to encrypt
+     * @return {string} the encrypted string encoded in base64
+     * @public
+     */
+    public encryptByte(str:string) {
+        // Return the encrypted string.
+        try {
+            return this.getKey().encrypt(str);
         } catch (ex) {
             return false;
         }
