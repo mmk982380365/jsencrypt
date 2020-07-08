@@ -49,6 +49,7 @@ export declare class JSEncrypt {
      * @public
      */
     decrypt(str: string): string | false;
+    decryptByte(str:string): object;
     /**
      * Proxy method for RSAKey object's encrypt, encrypt the string using the public
      * components of the rsa key object. Note that if the object was not set will be created
@@ -58,6 +59,7 @@ export declare class JSEncrypt {
      * @public
      */
     encrypt(str: string): string | false;
+    encryptByte(str:string): object;
     /**
      * Getter for the current JSEncryptRSAKey object. If it doesn't exists a new object
      * will be created and returned
